@@ -11,5 +11,7 @@ ENV PYTHONUNBUFFERED 1
 # RUN apt-get update && export DEBIAN_FRONTEND=noninteractive \
 #     && apt-get -y install --no-install-recommends <your-package-list-here>
 
-RUN apt-get update && export DEBIAN_FRONTEND=noninteractive \
-    && apt-get -y install --no-install-recommends postgresql-client
+RUN apt-get update \
+  && export DEBIAN_FRONTEND=noninteractive \
+  && apt-get install -y --no-install-recommends ca-certificates curl gnupg postgresql-client-16 \
+  && rm -rf /var/lib/apt/lists/*
